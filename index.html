@@ -196,15 +196,16 @@
 
     <nav class="navbar navbar-expand-lg sticky-top py-3" aria-label="Main navigation">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center py-1" href="#home" aria-label="Zigi Softwares home">
+        <a class="navbar-brand d-flex align-items-center gap-2 py-1" href="#home" aria-label="Zigi Softwares home">
           <img
             class="navbar-logo-img"
             src="images/zigi-logo.jpeg"
-            alt="Zigi Softwares"
+            alt=""
             height="42"
             decoding="async"
             fetchpriority="high"
           />
+          <span class="navbar-brand-text">Zigi <span>Softwares</span></span>
         </a>
         <div class="d-flex align-items-center gap-2 ms-auto ms-lg-3 order-lg-last">
           <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to light mode">
@@ -230,7 +231,6 @@
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#technologies">Tech</a></li>
             <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
             <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
           </ul>
           <div class="ms-lg-3 mt-3 mt-lg-0 d-flex flex-wrap gap-2">
@@ -260,21 +260,21 @@
                 <span class="pulse-dot"></span>
                 <span>Web · Mobile · AI · Enterprise Software</span>
               </div>
-              <h1 class="hero-title mb-4" data-split>
-                We Engineer Premium Websites, Mobile Apps &amp;
+              <h3 class="hero-title mb-4" data-split>
+                We Build Digital Products That Grow Your Business. &amp;
                 <span class="text-gradient text-shimmer">AI-Powered Software</span>
-              </h1>
+              </h3>
               <p class="hero-lead mb-4">
                 Your technology partner for
-                <span class="typewriter-wrap"><span id="typewriterText" class="typewriter-text">custom software</span><span class="typewriter-cursor" aria-hidden="true">|</span></span>
-                — ERP, CRM, payment-integrated platforms and Android &amp; iOS apps that scale with your business.
+                <span class="typewriter-wrap"><span id="typewriterText" class="typewriter-text">business websites</span><span class="typewriter-cursor" aria-hidden="true">|</span></span>
+                — fast, mobile-friendly and SEO-ready websites that turn visitors into customers and grow your brand online.
               </p>
               <div class="hero-cta d-flex flex-wrap gap-3 align-items-center">
                 <a class="btn btn-primary btn-lg px-4 btn-glow btn-magnetic" href="#contact">
                   Start Your Project <i class="bi bi-arrow-up-right ms-2" aria-hidden="true"></i>
                 </a>
-                <a class="btn btn-outline-primary btn-lg px-4 btn-magnetic" href="#portfolio">
-                  <i class="bi bi-play-circle me-2" aria-hidden="true"></i>View Our Work
+                <a class="btn btn-outline-primary btn-lg px-4 btn-magnetic" href="#services">
+                  <i class="bi bi-grid me-2" aria-hidden="true"></i>Our Services
                 </a>
               </div>
 
@@ -451,7 +451,7 @@
           <div class="row g-4">
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="0">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-globe2" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=70&auto=format" alt="Business website on a laptop" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">Website Development</h3>
                 <p class="card-text">Premium business websites tailored to your brand, SEO-friendly and fast.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -459,7 +459,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="100">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-window-stack" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=70&auto=format" alt="Web application dashboard" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">Web Applications</h3>
                 <p class="card-text">.NET Core &amp; Angular applications for workflows, dashboards and operations.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -467,7 +467,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="200">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-phone" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=70&auto=format" alt="Mobile app on a smartphone" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">Android &amp; iOS Apps</h3>
                 <p class="card-text">Mobile apps for customers and staff, connected to secure backends.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -475,7 +475,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="0">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-stars" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=70&auto=format" alt="Artificial intelligence concept" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">AI Solutions</h3>
                 <p class="card-text">Chatbots, smart search and workflow automation built into your software.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -483,7 +483,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="100">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-credit-card-2-front" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=70&auto=format" alt="Online card payment" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">Payment Integration</h3>
                 <p class="card-text">UPI, Razorpay and Stripe checkout with secure, reconciled transactions.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -491,7 +491,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="200">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-cart3" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&q=70&auto=format" alt="Retail store front" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">E-Commerce Website</h3>
                 <p class="card-text">Online stores with catalog, cart, payments and order management.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -499,7 +499,7 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="0">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-diagram-3" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=70&auto=format" alt="Warehouse inventory" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">ERP Software</h3>
                 <p class="card-text">Inventory, accounts, HR and multi-branch business management.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
@@ -507,41 +507,17 @@
             </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="100">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-people" aria-hidden="true"></i></span>
-                <h3 class="card-title">CRM Software</h3>
-                <p class="card-text">Lead tracking, customer records and sales pipeline tools.</p>
-                <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="200">
-              <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></span>
-                <h3 class="card-title">Hospital &amp; School Software</h3>
-                <p class="card-text">Appointments, patients, admissions, fees, attendance and reports.</p>
-                <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="0">
-              <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-receipt" aria-hidden="true"></i></span>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=70&auto=format" alt="Invoice and calculator" width="600" height="375" loading="lazy" decoding="async" /></div>
                 <h3 class="card-title">Billing Software</h3>
                 <p class="card-text">GST-ready invoicing, billing and payment tracking.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
               </article>
             </div>
-            <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="100">
-              <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-plug" aria-hidden="true"></i></span>
-                <h3 class="card-title">API Integration</h3>
-                <p class="card-text">Connect SMS, shipping, maps and other third-party services.</p>
-                <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
-              </article>
-            </div>
             <div class="col-md-6 col-lg-4 reveal-on-scroll" data-delay="200">
               <article class="glass-card service-card" data-tilt>
-                <span class="service-icon"><i class="bi bi-wrench-adjustable" aria-hidden="true"></i></span>
-                <h3 class="card-title">Maintenance &amp; Support</h3>
-                <p class="card-text">Updates, backups, security checks and ongoing support.</p>
+                <div class="service-media"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=70&auto=format" alt="Server network cables" width="600" height="375" loading="lazy" decoding="async" /></div>
+                <h3 class="card-title">API Integration</h3>
+                <p class="card-text">Connect SMS, shipping, maps and other third-party services.</p>
                 <span class="service-arrow"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
               </article>
             </div>
@@ -788,113 +764,6 @@
         </div>
       </section>
 
-      <!-- ============ PORTFOLIO ============ -->
-      <section id="portfolio" class="section section-alt" aria-labelledby="portfolio-title">
-        <div class="container">
-          <div class="section-head reveal-on-scroll">
-            <p class="section-eyebrow">Our work</p>
-            <h2 class="section-title" id="portfolio-title">Featured <span class="text-gradient">Projects</span></h2>
-            <p class="section-subtitle">
-              Representative work across ERP, commerce, healthcare and portals — illustrative imagery.
-            </p>
-          </div>
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-3 reveal-on-scroll" data-delay="0">
-              <article class="glass-card portfolio-card h-100" data-tilt>
-                <div class="portfolio-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=75&auto=format"
-                    srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=480&q=70&auto=format 480w, https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=75&auto=format 800w"
-                    sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    width="800"
-                    height="533"
-                    alt="Retail ERP dashboard with sales analytics"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="portfolio-tag">Enterprise ERP</span>
-                </div>
-                <div class="portfolio-body">
-                  <h3 class="card-title">Modern ERP System</h3>
-                  <p class="card-text small">Inventory, purchases and sales reporting for a multi-branch retail operation.</p>
-                  <p class="portfolio-meta"><strong>Stack:</strong> .NET Core, Angular, MySQL, REST APIs</p>
-                  <p class="portfolio-meta mb-0"><strong>Client:</strong> Confidential</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal-on-scroll" data-delay="100">
-              <article class="glass-card portfolio-card h-100" data-tilt>
-                <div class="portfolio-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=75&auto=format"
-                    srcset="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=480&q=70&auto=format 480w, https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=75&auto=format 800w"
-                    sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    width="800"
-                    height="533"
-                    alt="E-commerce storefront checkout with card payment"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="portfolio-tag">E-Commerce</span>
-                </div>
-                <div class="portfolio-body">
-                  <h3 class="card-title">E-Commerce Platform</h3>
-                  <p class="card-text small">Storefront with catalog, cart, payments and admin order management.</p>
-                  <p class="portfolio-meta"><strong>Stack:</strong> Angular, Razorpay / Stripe, responsive UI</p>
-                  <p class="portfolio-meta mb-0"><strong>Client:</strong> UrbanMart Pvt. Ltd.</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal-on-scroll" data-delay="200">
-              <article class="glass-card portfolio-card h-100" data-tilt>
-                <div class="portfolio-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=75&auto=format"
-                    srcset="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=480&q=70&auto=format 480w, https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=75&auto=format 800w"
-                    sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    width="800"
-                    height="533"
-                    alt="Hospital management software in use by a doctor"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="portfolio-tag">Healthcare</span>
-                </div>
-                <div class="portfolio-body">
-                  <h3 class="card-title">Healthcare App</h3>
-                  <p class="card-text small">Appointments, patient records and billing for a mid-size clinic.</p>
-                  <p class="portfolio-meta"><strong>Stack:</strong> Secure web app, role-based access, reporting</p>
-                  <p class="portfolio-meta mb-0"><strong>Client:</strong> Under NDA</p>
-                </div>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-3 reveal-on-scroll" data-delay="300">
-              <article class="glass-card portfolio-card h-100" data-tilt>
-                <div class="portfolio-img-wrap">
-                  <img
-                    src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=75&auto=format"
-                    srcset="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=480&q=70&auto=format 480w, https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=75&auto=format 800w"
-                    sizes="(min-width: 992px) 25vw, (min-width: 768px) 50vw, 100vw"
-                    width="800"
-                    height="533"
-                    alt="Real estate listings portal with property search"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <span class="portfolio-tag">Web Portal</span>
-                </div>
-                <div class="portfolio-body">
-                  <h3 class="card-title">Real Estate Portal</h3>
-                  <p class="card-text small">Listings, inquiries and agent dashboards for property discovery.</p>
-                  <p class="portfolio-meta"><strong>Stack:</strong> Bootstrap, maps &amp; search integration</p>
-                  <p class="portfolio-meta mb-0"><strong>Client:</strong> Metro Realty Group</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <!-- ============ FAQ ============ -->
       <section id="faq" class="section" aria-labelledby="faq-title">
         <div class="container">
@@ -1046,11 +915,34 @@
                     </div>
                     <div class="col-md-6">
                       <label class="form-label" for="enqMobile">Mobile number <span aria-hidden="true">*</span></label>
-                      <div class="input-icon">
-                        <i class="bi bi-phone" aria-hidden="true"></i>
-                        <input type="tel" class="form-control" id="enqMobile" name="mobile" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="+91 98765 43210" required />
+                      <div class="phone-group">
+                        <select class="form-select country-select" id="enqCountry" name="country" aria-label="Country code" autocomplete="tel-country-code">
+                          <option value="+91" data-min="10" data-max="10" selected>IN +91</option>
+                          <option value="+1" data-min="10" data-max="10">US +1</option>
+                          <option value="+1" data-min="10" data-max="10">CA +1</option>
+                          <option value="+44" data-min="10" data-max="10">UK +44</option>
+                          <option value="+61" data-min="9" data-max="9">AU +61</option>
+                          <option value="+64" data-min="8" data-max="10">NZ +64</option>
+                          <option value="+971" data-min="9" data-max="9">AE +971</option>
+                          <option value="+966" data-min="9" data-max="9">SA +966</option>
+                          <option value="+974" data-min="8" data-max="8">QA +974</option>
+                          <option value="+965" data-min="8" data-max="8">KW +965</option>
+                          <option value="+968" data-min="8" data-max="8">OM +968</option>
+                          <option value="+973" data-min="8" data-max="8">BH +973</option>
+                          <option value="+65" data-min="8" data-max="8">SG +65</option>
+                          <option value="+60" data-min="9" data-max="10">MY +60</option>
+                          <option value="+94" data-min="9" data-max="9">LK +94</option>
+                          <option value="+977" data-min="10" data-max="10">NP +977</option>
+                          <option value="+880" data-min="10" data-max="10">BD +880</option>
+                          <option value="+49" data-min="10" data-max="11">DE +49</option>
+                          <option value="+33" data-min="9" data-max="9">FR +33</option>
+                        </select>
+                        <div class="input-icon">
+                          <i class="bi bi-phone" aria-hidden="true"></i>
+                          <input type="tel" class="form-control" id="enqMobile" name="mobile" autocomplete="tel-national" inputmode="tel" maxlength="16" placeholder="98765 43210" required />
+                        </div>
                       </div>
-                      <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
+                      <div class="invalid-feedback" id="enqMobileError">Please enter a valid 10-digit mobile number.</div>
                     </div>
                     <div class="col-12">
                       <label class="form-label" for="enqEmail">Email address <span aria-hidden="true">*</span></label>
@@ -1110,7 +1002,6 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#portfolio">Projects</a></li>
               <li><a href="#faq">FAQ</a></li>
             </ul>
           </nav>
