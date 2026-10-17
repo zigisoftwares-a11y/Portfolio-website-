@@ -59,6 +59,192 @@
     mobileInput.addEventListener("input", validateMobile);
     countrySelect.addEventListener("change", validateMobile);
 
+    (function enhanceCountrySelect() {
+      const flagUrl = (iso) => "https://flagcdn.com/w40/" + iso + ".png";
+      const el = (tag, cls) => {
+        const node = document.createElement(tag);
+        if (cls) node.className = cls;
+        return node;
+      };
+
+      const picker = el("div", "country-picker");
+      const trigger = el("button", "country-trigger");
+      trigger.type = "button";
+      trigger.setAttribute("aria-haspopup", "listbox");
+      trigger.setAttribute("aria-expanded", "false");
+      const triggerFlag = el("img", "country-flag");
+      triggerFlag.alt = "";
+      triggerFlag.width = 22;
+      triggerFlag.height = 16;
+      const triggerCode = el("span", "country-trigger-code");
+      const chevron = el("i", "bi bi-chevron-down country-chevron");
+      chevron.setAttribute("aria-hidden", "true");
+      trigger.append(triggerFlag, triggerCode, chevron);
+
+      const menu = el("div", "country-menu");
+      menu.hidden = true;
+      const searchWrap = el("div", "country-search");
+      const searchIcon = el("i", "bi bi-search");
+      searchIcon.setAttribute("aria-hidden", "true");
+      const search = el("input");
+      search.type = "text";
+      search.placeholder = "Search country or code";
+      search.setAttribute("aria-label", "Search country");
+      search.autocomplete = "off";
+      searchWrap.append(searchIcon, search);
+      const list = el("ul", "country-list");
+      list.setAttribute("role", "listbox");
+      list.id = "enqCountryList";
+      trigger.setAttribute("aria-controls", list.id);
+      const empty = el("li", "country-empty");
+      empty.textContent = "No matches";
+      empty.hidden = true;
+      menu.append(searchWrap, list);
+
+      const items = Array.from(countrySelect.options).map(function (opt, index) {
+        const li = el("li", "country-option");
+        li.setAttribute("role", "option");
+        li.id = "enqCountryOpt" + index;
+        li.dataset.index = index;
+        li.dataset.search = (opt.dataset.name + " " + opt.value + " " + opt.dataset.iso).toLowerCase();
+        const flag = el("img", "country-flag");
+        flag.src = flagUrl(opt.dataset.iso);
+        flag.alt = "";
+        flag.width = 22;
+        flag.height = 16;
+        flag.loading = "lazy";
+        const name = el("span", "country-name");
+        name.textContent = opt.dataset.name;
+        const code = el("span", "country-code");
+        code.textContent = opt.value;
+        const check = el("i", "bi bi-check2 country-check");
+        check.setAttribute("aria-hidden", "true");
+        li.append(flag, name, code, check);
+        list.append(li);
+        return li;
+      });
+      list.append(empty);
+
+      let activeIndex = -1;
+
+      function sync() {
+        const opt = countrySelect.options[countrySelect.selectedIndex];
+        triggerFlag.src = flagUrl(opt.dataset.iso);
+        triggerCode.textContent = opt.value;
+        trigger.setAttribute("aria-label", "Country code: " + opt.dataset.name + " " + opt.value);
+        items.forEach(function (li, i) {
+          li.setAttribute("aria-selected", i === countrySelect.selectedIndex ? "true" : "false");
+        });
+      }
+
+      function visibleItems() {
+        return items.filter((li) => !li.hidden);
+      }
+
+      function setActive(li, scroll = true) {
+        items.forEach((item) => item.classList.remove("is-active"));
+        if (!li) {
+          activeIndex = -1;
+          search.removeAttribute("aria-activedescendant");
+          return;
+        }
+        li.classList.add("is-active");
+        activeIndex = Number(li.dataset.index);
+        search.setAttribute("aria-activedescendant", li.id);
+        if (scroll) li.scrollIntoView({ block: "nearest" });
+      }
+
+      function open() {
+        if (!menu.hidden) return;
+        menu.hidden = false;
+        picker.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        search.value = "";
+        filter();
+        setActive(items[countrySelect.selectedIndex]);
+        search.focus();
+      }
+
+      function close(focusTrigger) {
+        if (menu.hidden) return;
+        menu.hidden = true;
+        picker.classList.remove("is-open");
+        trigger.setAttribute("aria-expanded", "false");
+        if (focusTrigger) trigger.focus();
+      }
+
+      function choose(index) {
+        if (countrySelect.selectedIndex !== index) {
+          countrySelect.selectedIndex = index;
+          countrySelect.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+        sync();
+        close(false);
+        mobileInput.focus();
+      }
+
+      function filter() {
+        const q = search.value.trim().toLowerCase().replace(/^\+/, "");
+        items.forEach(function (li) {
+          li.hidden = q !== "" && !li.dataset.search.includes(q);
+        });
+        const visible = visibleItems();
+        empty.hidden = visible.length > 0;
+        if (!visible.some((li) => Number(li.dataset.index) === activeIndex)) setActive(visible[0]);
+      }
+
+      trigger.addEventListener("click", function () {
+        menu.hidden ? open() : close(true);
+      });
+      trigger.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          open();
+        }
+      });
+      search.addEventListener("input", filter);
+      search.addEventListener("keydown", function (e) {
+        const visible = visibleItems();
+        const pos = visible.findIndex((li) => Number(li.dataset.index) === activeIndex);
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          setActive(visible[Math.min(pos + 1, visible.length - 1)]);
+        } else if (e.key === "ArrowUp") {
+          e.preventDefault();
+          setActive(visible[Math.max(pos - 1, 0)]);
+        } else if (e.key === "Enter") {
+          e.preventDefault();
+          if (activeIndex >= 0) choose(activeIndex);
+        } else if (e.key === "Escape") {
+          e.preventDefault();
+          close(true);
+        } else if (e.key === "Tab") {
+          close(false);
+        }
+      });
+      list.addEventListener("click", function (e) {
+        const li = e.target.closest(".country-option");
+        if (li) choose(Number(li.dataset.index));
+      });
+      list.addEventListener("mousemove", function (e) {
+        const li = e.target.closest(".country-option");
+        if (li && Number(li.dataset.index) !== activeIndex) setActive(li, false);
+      });
+      document.addEventListener("pointerdown", function (e) {
+        if (!picker.contains(e.target)) close(false);
+      });
+      enquiryForm.addEventListener("reset", function () {
+        setTimeout(sync);
+      });
+
+      picker.append(trigger, menu);
+      countrySelect.before(picker);
+      countrySelect.classList.add("is-enhanced");
+      countrySelect.tabIndex = -1;
+      countrySelect.setAttribute("aria-hidden", "true");
+      sync();
+    })();
+
     const emailInput = enquiryForm.elements.email;
     function validateEmail() {
       emailInput.setCustomValidity(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailInput.value.trim()) ? "" : "invalid");
